@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15">
+
+        <TextView
+            android:id="@+id/Player1"
+            style="@style/buttonText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:background="@drawable/programtextview"
+            android:enabled="false"
+            android:text="@string/Player1" />
+
+        <TextView
+            android:id="@+id/Player2"
+            style="@style/buttonText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:background="@drawable/programtextview"
+            android:enabled="false"
+            android:text="@string/Player2" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="75">
+
+        <TableLayout
+            android:layout_width="0dp"
+            android:layout_weight="100"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button1"
+                    style="@style/buttonText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_border"
+                    android:onClick="buttonClick" />
+
+                <Button
+                    android:id="@+id/button2"
+                    style="@style/buttonText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_border"
+                    android:onClick="buttonClick" />
+
+                <Button
+                    android:id="@+id/button3"
+                    style="@style/buttonText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_border"
+                    android:onClick="buttonClick" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button4"
+                    style="@style/buttonText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_border"
+                    android:onClick="buttonClick" />
+
+                <Button
+                    android:id="@+id/button5"
+                    style="@style/buttonText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_border"
+                    android:onClick="buttonClick" />
+
+                <Button
+                    android:id="@+id/button6"
+                    style="@style/buttonText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_border"
+                    android:onClick="buttonClick" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Button
+                    android:id="@+id/button7"
+                    style="@style/buttonText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_border"
+                    android:onClick="buttonClick" />
+
+                <Button
+                    android:id="@+id/button8"
+                    style="@style/buttonText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_border"
+                    android:onClick="buttonClick" />
+
+                <Button
+                    android:id="@+id/button9"
+                    style="@style/buttonText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_border"
+                    android:onClick="buttonClick" />
+            </TableRow>
+        </TableLayout>
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10">
+        <TextView
+            android:id="@+id/startGame"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:text="@string/startGame"
+            android:background="@drawable/border"
+            style="@style/buttonText" />
+    </TableRow>
+</TableLayout>
