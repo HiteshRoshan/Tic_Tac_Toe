@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Tic Tac Toe</string>
+    <string name="Player1">Player 1</string>
+    <string name="Player2">Player 2</string>
+    <string name="letsPlay">Let\'s Play</string>
+    <string name="hint1">First Player Name</string>
+    <string name="hint2">Second Player Name</string>
+    <string name="winner">Congratulations! %1$s is Winner!</string>
+    <string name="draw">Oops!!! This match is draw… Well Done!</string>
+    <string name="myturn">Now it\'s %1$s turn… Let\'s go</string>
+    <string name="exit">Exit</string>
+    <string name="startGame">Click any red button to start game</string>
+</resources>
