@@ -1,0 +1,224 @@
+package com.example.tic_tac_toe;
+
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.widget.Button;
+import android.view.View;
+import android.widget.TextView;
+
+import java.util.Objects;
+
+public class GameClass extends AppCompatActivity {
+
+    Button b1, b2, b3, b4, b5, b6, b7, b8, b9;
+    TextView player1, player2;
+    TextView turnIdentifier;
+    String player1Name, player2Name, turnDecider;
+    Toolbar toolbar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState)  {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.game_page);
+
+        Intent intent2 = getIntent();
+        try{
+            player1Name=Objects.requireNonNull(intent2.getExtras()).getString("player1");
+            turnDecider=player1Name;
+            player2Name=Objects.requireNonNull(intent2.getExtras()).getString("player2"); {
+            }
+        }
+        catch(Exception e){
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setMessage(""+ e);
+            alertDialogBuilder.setTitle("AlertDialog");
+            alertDialogBuilder.setPositiveButton("Ok", null);
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+        }
+
+        b1= findViewById(R.id.button1);
+        b2= findViewById(R.id.button2);
+        b3= findViewById(R.id.button3);
+        b4= findViewById(R.id.button4);
+        b5= findViewById(R.id.button5);
+        b6= findViewById(R.id.button6);
+        b7= findViewById(R.id.button7);
+        b8= findViewById(R.id.button8);
+        b9= findViewById(R.id.button9);
+
+        player1 = findViewById(R.id.Player1);
+        player1.setText(player1Name);
+        player1.setBackgroundResource(R.drawable.border);
+
+        player2 = findViewById(R.id.Player2);
+        player2.setText(player2Name);
+
+        turnIdentifier = findViewById(R.id.startGame);
+
+    }
+    public void buttonClick(View v)
+    {
+        switch (v.getId()){
+            case R.id.button1:
+                b1.setText(turn(b1));
+                b1.setEnabled(false);
+                winner();
+                break;
+            case R.id.button2:
+                b2.setText(turn(b2));
+                b2.setEnabled(false);
+                winner();
+                break;
+            case R.id.button3:
+                b3.setText(turn(b3));
+                b3.setEnabled(false);
+                winner();
+                break;
+            case R.id.button4:
+                b4.setText(turn(b4));
+                b4.setEnabled(false);
+                winner();
+                break;
+            case R.id.button5:
+                b5.setText(turn(b5));
+                b5.setEnabled(false);
+                winner();
+                break;
+            case R.id.button6:
+                b6.setText(turn(b6));
+                b6.setEnabled(false);
+                winner();
+                break;
+            case R.id.button7:
+                b7.setText(turn(b7));
+                b7.setEnabled(false);
+                winner();
+                break;
+            case R.id.button8:
+                b8.setText(turn(b8));
+                b8.setEnabled(false);
+                winner();
+                break;
+            case R.id.button9:
+                b9.setText(turn(b9));
+                b9.setEnabled(false);
+                winner();
+                break;
+        }
+    }
+    public String turn(View btn){
+        if(turnDecider.equals(player1Name))
+        {
+            player2.setBackgroundResource(R.drawable.border);
+            player1.setBackgroundResource(R.drawable.programtextview);
+            btn.setBackgroundResource(R.drawable.buttondisable);
+            turnDecider=player2Name;
+            return "O";
+        }
+        else{
+            player1.setBackgroundResource(R.drawable.border);
+            player2.setBackgroundResource(R.drawable.programtextview);
+            btn.setBackgroundResource(R.drawable.buttondisable1);
+            turnDecider=player1Name;
+            return "X";
+        }
+    }
+    public void winner(){
+        if((b1.getText().equals("O") && b2.getText().equals("O") && b3.getText().equals("O")) ||
+                (b4.getText().equals("O") && b5.getText().equals("O") && b6.getText().equals("O")) ||
+                (b7.getText().equals("O") && b8.getText().equals("O") && b9.getText().equals("O")) ||
+                (b1.getText().equals("O") && b4.getText().equals("O") && b7.getText().equals("O")) ||
+                (b2.getText().equals("O") && b5.getText().equals("O") && b8.getText().equals("O")) ||
+                (b3.getText().equals("O") && b6.getText().equals("O") && b9.getText().equals("O")) ||
+                (b1.getText().equals("O") && b5.getText().equals("O") && b9.getText().equals("O")) ||
+                (b3.getText().equals("O") && b5.getText().equals("O") && b7.getText().equals("O"))){
+            turnIdentifier.setText(getString(R.string.winner, player1Name));
+            turnIdentifier.setBackgroundResource(R.drawable.winnerdeclaration);
+            player1.setBackgroundResource(R.drawable.winnerdeclaration);
+            player2.setBackgroundResource(R.drawable.programtextview);
+            disableButtons();
+            playAgain(getString(R.string.winner, player1Name));
+        }
+        else if((b1.getText().equals("X") && b2.getText().equals("X") && b3.getText().equals("X")) ||
+                (b4.getText().equals("X") && b5.getText().equals("X") && b6.getText().equals("X")) ||
+                (b7.getText().equals("X") && b8.getText().equals("X") && b9.getText().equals("X")) ||
+                (b1.getText().equals("X") && b4.getText().equals("X") && b7.getText().equals("X")) ||
+                (b2.getText().equals("X") && b5.getText().equals("X") && b8.getText().equals("X")) ||
+                (b3.getText().equals("X") && b6.getText().equals("X") && b9.getText().equals("X")) ||
+                (b1.getText().equals("X") && b5.getText().equals("X") && b9.getText().equals("X")) ||
+                (b3.getText().equals("X") && b5.getText().equals("X") && b7.getText().equals("X"))){
+            turnIdentifier.setText(getString(R.string.winner, player2Name));
+            turnIdentifier.setBackgroundResource(R.drawable.winnerdeclaration);
+            player2.setBackgroundResource(R.drawable.winnerdeclaration);
+            player1.setBackgroundResource(R.drawable.programtextview);
+            disableButtons();
+            playAgain(getString(R.string.winner, player2Name));
+        }
+        else if(!b1.getText().equals("") && !b2.getText().equals("") && !b3.getText().equals("") &&
+                !b4.getText().equals("") && !b5.getText().equals("") && !b6.getText().equals("") &&
+                !b7.getText().equals("") && !b8.getText().equals("") && !b9.getText().equals("")){
+            turnIdentifier.setText(R.string.draw);
+            turnIdentifier.setBackgroundResource(R.drawable.winnerdeclaration);
+            player2.setBackgroundResource(R.drawable.programtextview);
+            player1.setBackgroundResource(R.drawable.programtextview);
+            playAgain(getString(R.string.draw));
+        }
+        else
+        {
+            if(turnDecider.equals(player1Name))
+                turnIdentifier.setText(getString(R.string.myturn, player1Name));
+            else
+                turnIdentifier.setText(getString(R.string.myturn, player2Name));
+        }
+    }
+    public void disableButtons(){
+        b1.setEnabled(false);
+        b2.setEnabled(false);
+        b3.setEnabled(false);
+        b4.setEnabled(false);
+        b5.setEnabled(false);
+        b6.setEnabled(false);
+        b7.setEnabled(false);
+        b8.setEnabled(false);
+        b9.setEnabled(false);
+    }
+    public void playAgain(String msg){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage(msg + " Play Again?");
+        alertDialogBuilder.setIcon(R.drawable.ic_play_again);
+        alertDialogBuilder.setTitle("Play Again");
+        alertDialogBuilder.setCancelable(false);
+        alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface arg0, int arg1) {
+                b1.setEnabled(true); b2.setEnabled(true); b3.setEnabled(true); b4.setEnabled(true); b5.setEnabled(true);
+                b6.setEnabled(true); b7.setEnabled(true); b8.setEnabled(true); b9.setEnabled(true);
+                b1.setText(""); b2.setText(""); b3.setText(""); b4.setText(""); b5.setText("");
+                b6.setText(""); b7.setText(""); b8.setText(""); b9.setText("");
+                b1.setBackgroundResource(R.drawable.button_border); b2.setBackgroundResource(R.drawable.button_border);b3.setBackgroundResource(R.drawable.button_border);
+                b4.setBackgroundResource(R.drawable.button_border);b5.setBackgroundResource(R.drawable.button_border);b6.setBackgroundResource(R.drawable.button_border);
+                b7.setBackgroundResource(R.drawable.button_border);b8.setBackgroundResource(R.drawable.button_border);b9.setBackgroundResource(R.drawable.button_border);
+                turnIdentifier.setBackgroundResource(R.drawable.border);
+                player1.setBackgroundResource(R.drawable.border);
+                player2.setBackgroundResource(R.drawable.programtextview);
+                turnIdentifier.setText(R.string.startGame);
+                turnDecider=player1Name;
+            }
+        });
+
+        alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+}
